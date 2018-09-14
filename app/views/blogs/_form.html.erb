@@ -1,42 +1,103 @@
-<%= simple_form_for @blog do |f| %>
-  <div>
-    <%= f.label :Create_blog_posts %>
-  </div>
-  <div>
-    <div class="form-group">
-      <%= f.label :title %>
-      <%= f.text_field :title%>
+<div class="total_interface">
+  <%= simple_form_for @blog do |f| %>
+    <%= render 'shared/error_messages' %>
+    <%= hidden_field_tag :step, :edit %>
+    <div class="text_0">
+      <p>ブログ投稿を作成する</p>
+    </div>
+    <div>
+      <div class="title_group">
+          <%= f.label :title, 'タイトル'  %>
+          <%= f.text_field :title%>
+      </div>
+      <div class="text_1">
+        <p>タイトルを入力してください</p>
+        <p>255文字以下のタイトルを入力してください</p>
+      </div>
+      <div class="form-group">
+        <%= f.label :category, 'カテゴリ' %>
+        <%= f.select :category_id, @categories.collect {|p| [ p.category_name, p.id ] }%>
+      </div>
+      <div class="text_1">
+        <p>カテゴリを選択してください</p>
+      </div>
+        <div class='input-group date' id='public_time'>
+          <%= f.label :public_time, '公開日時' %>
+          <%= f.text_field :public_time %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      <div class="text_1">
+        <p>公開日時を設定してください</p>
+      </div>
+      <div class="form-group">
+        <div>
+          <%= f.label :view_model, '公開設定' %>
+          <%= f.check_box :view_model %>公開設定
+      </div>
+      <div class="form-group">
+        <%= f.label :suggestive , '提案設定' %>
+        <%= f.check_box :suggestive %>提案設定
+      </div>
     </div>
     <div class="form-group">
-      <%= f.label :category %>
-      <%= f.select :category_id, @categories.collect {|p| [ p.category_name, p.id ] }%>
+      <%= f.input :content, :as => :ckeditor, input_html: {:ckeditor => {:toolbar => 'FULL'}}, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :DateTime_Public %>
-      <%= f.datetime_field :public_time%>
+    <div class="field">
+      <%= f.label :image, '写真紹介' %><br>
+      <div class="preview_image">
+        <img id="img1" src="" height="130"  alt="Image preview">
+      </div>
+      <div class="text_2">
+        <p>容量は2M未満です.PNG、JPG、JPEGのみ</p>
+      </div>
+      <div class="text_2">
+        <%= f.file_field :image, onchange: "previewFile('img1')" %>
+      </div>
+      <div class="text_2">
+        <p>デモイメージをインストールしてください</p>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.input :content, :as => :ckeditor, input_html: {:ckeditor => {:toolbar => 'FULL'}}, class: "form-control" %>
-  </div>
-  <div>
-    <div class="form-group">
-      <%= f.label :Setting_editor %>
+    <div>
+      <div class="text_0">
+        <p>ポスターを設定する</p>
+      </div>
+      <div class="form-group">
+        <%= f.label :creator_name , ' 名前 ' %>
+        <%= f.text_field :creator_name%>
+        <div class="text_2">
+          <p>名前を入力してください</p>
+          <p>32文字以上を入力してください</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :creator_postion, '職員' %>
+        <%= f.text_field :creator_postion%>
+        <div class="text_2">
+          <p>位置を入力してください</p>
+          <p>32文字以上を入力してください</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :creator_old, '年齢' %>
+        <%= f.text_field :creator_old %>
+      </div>
+      <div class="field">
+        <%= f.label :creator_avatar, '代表的な画像' %>
+        <div class="preview_image">
+          <img id="img2" src="" height="130" alt="Image preview">
+        </div>
+        <div class="text_2">
+          <%= f.file_field :creator_avatar, onchange: "previewFile('img2')" %>
+        </div>
+        <div class="text_2">
+          <p>容量は2M未満です.PNG、JPG、JPEGのみ</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.submit "確認" %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.label :creator_name %>
-      <%= f.text_field :creator_name%>
-    </div>
-    <div class="form-group">
-      <%= f.label :creator_postion %>
-      <%= f.text_field :creator_postion%>
-    </div>
-    <div class="form-group">
-      <%= f.label :creator_old %>
-      <%= f.text_field :creator_old %>
-    </div>
-    <div class="form-group">
-      <%= f.submit "Xac nhan" %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

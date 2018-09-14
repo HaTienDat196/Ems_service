@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'mini_magick'
 gem 'carrierwave'
@@ -19,9 +20,13 @@ gem 'bcrypt',         '3.1.12'
 gem 'faker',          '1.7.3'
 gem 'simple_form'
 gem 'bootstrap-sass'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
 end
 
 group :development do

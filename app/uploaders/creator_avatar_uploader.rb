@@ -1,4 +1,4 @@
-class AvatarUploader < CarrierWave::Uploader::Base
+class CreatorAvatarUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir
@@ -11,17 +11,16 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  # Create different versions of your uploaded files:
   version :thumb do
     process resize_to_fill: [20, 20]
   end
 
   version :medium do
-    process resize_to_fill: [60, 60]
+    process resize_to_fill: [50, 50]
   end
 
   version :small do
-    process resize_to_fill: [70, 70]
+    process resize_to_fill: [60, 60]
   end
 
   def extension_white_list

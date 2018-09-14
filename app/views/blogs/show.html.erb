@@ -2,7 +2,11 @@
   content: <%= @blog.content %><br/>
   category_name: <%= @blog.category.category_name %><br/>
   public_time: <%= @blog.public_time %><br/>
+  <strong>Image:</strong>
+  <%= image_tag @blog.image.thumb.url %><br/>
   creator_name: <%= @blog.creator_name %><br/>
   creator_postion: <%= @blog.creator_postion %><br/>
   view_model: <%= @blog.view_model %><br/>
-  suggestive: <%= @blog.suggestive %>
+  suggestive: <%= @blog.suggestive %><br/>
+  <strong>Creator_avatar:</strong>
+  <%= image_tag @blog.creator_avatar.thumb.url %><br/>

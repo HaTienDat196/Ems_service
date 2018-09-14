@@ -1,2 +1,18 @@
-<h1>Blogs#index</h1>
-<p>Find me in app/views/blogs/index.html.erb</p>
+<h1>ブログブログ</h1>
+<%= render "blogs/header" %>
+  <% @blog.each do |blog| -%>
+    <table>
+      <tbody>
+        <tr>
+          <td><%= blog.created_at %></td>
+          <td><%= blog.title %></td>
+          <td><%= blog.category.category_name %></td>
+          <td><%= blog.suggestive %></td>
+          <td><%= blog.creator_name %></td>
+          <td><%= blog.image %></td>
+          <td><%= blog.view_model %></td>
+          <td><%= blog.public_time %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end -%>

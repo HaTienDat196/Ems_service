@@ -1,0 +1,54 @@
+<%= simple_form_for @blog do |f|%>
+  <div>
+    <div class="form-group">
+      <%= f.hidden_field :title %>
+      Title: <%= @blog.title %>
+    </div>
+    <div class="form-group">
+      <%= f.hidden_field :category_id %>
+      Category_name: <%= @blog.category.category_name %>
+    </div>
+    <div class="form-group">
+      <%= f.hidden_field :public_time %>
+      Time_public: <%= @blog.public_time %>
+    </div>
+    <div class="form-group">
+      <%= f.hidden_field :view_model %>
+      Public view: <%= @blog.view_model %>
+    </div>
+    <div class="form-group">
+      <%= f.hidden_field :suggestive %>
+      Suggestive: <%= @blog.suggestive %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.hidden_field :content %>
+    Content: <%= @blog.content %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :image %>
+    BLog_image: <%= @blog.image %>
+  </div>
+  <div>
+    <div class="form-group">
+      <%= f.hidden_field :creator_name %>
+      Creator_name: <%= @blog.creator_name %>
+    </div>
+    <div class="form-group">
+      <%= f.hidden_field :creator_postion %>
+      Creator_postion: <%= @blog.creator_postion %>
+    </div>
+    <div class="form-group">
+      <%= f.hidden_field :creator_old %>
+      Creator_old<%= @blog.creator_old %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :creator_avatar %>
+      Creator_avatar: <%= @blog.creator_avatar %>
+    </div>
+  </div>
+  <div>
+    <%= f.submit 'Confirm' %>
+    <%= f.submit 'Edit' %>
+  </div>
+<% end %>

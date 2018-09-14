@@ -1,0 +1,71 @@
+
+.total_interface
+{
+  margin-left: 70px;
+  margin-bottom: 10px;
+}
+.text_0{
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+.text_1{
+  margin-left: 140px;
+  color: red;
+  margin-bottom: 10px;
+}
+.text_2{
+  margin-left: 90px;
+  color: red;
+  margin-bottom: 10px;
+}
+.form_group1{
+  input{
+  border: 1px solid #bbb;
+  width: 60%;
+  margin-bottom: 15px;
+  @include box_sizing;
+  margin-bottom: 10px;
+  }
+}
+.preview_image
+{
+  margin-left: 70px;
+  height: 130px;
+  width: 15%;
+  border-style: double;
+  margin-bottom: 10px;
+}
+.text_02{
+  height: 30px;
+  width: 80px;
+  border-style: solid;
+  background-color: #337ab7;
+  color: white;
+  text-align: center;
+}
+label{
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    background-color: #244d71;
+    color: white;
+    text-align: center;
+    margin-right: 50px;
+    border: 2px solid;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+.edit_lable{
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+select{
+    height : 30px;
+}
