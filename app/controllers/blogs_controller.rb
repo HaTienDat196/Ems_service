@@ -1,8 +1,29 @@
 class BlogsController < ApplicationController
-  before_action :find_blog, only: [:edit, :update, :show, :delete]
+
+  before_action :find_blog,:find_category_id, only: [:edit, :update, :show, :delete]
 
   def index
-    @blog = Blog.all
+    @filterrific = initialize_filterrific(
+      Blog,
+      params[:filterrific],
+      select_options: {
+        sorted_by: Blog.options_for_sorted_by,
+        with_category_name: Category.options_for_select
+      },
+      persistence_id: 'shared_key',
+      default_filter_params: {},
+      available_filters: [:sorted_by, :with_category_name],
+      sanitize_params: true
+    ) or return
+    @blog = @filterrific.find.page(params[:page]).per(20)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  rescue ActiveRecord::RecordNotFound => e
+    puts "Had to reset filterrific params: #{ e.message }"
+    redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   def new
@@ -10,57 +31,46 @@ class BlogsController < ApplicationController
     @categories = Category.all
   end
 
-  # def create
-  #   @categories = Category.all
-  #   @blog = Blog.new(blog_params)
-  #   if edit?
-  #     if @blog.valid?
-  #       render :preview
-  #         if params[:commit] == 'Confirm'
-  #           @blog.save
-  #         elsif params[:commit] == 'Edit'
-  #           render :new
-  #         end
-  #     else
-  #       render :new
-  #     end
-  #   end
-  # end
-
-  # def create
-  #   @categories = Category.all
-  #   @blog = Blog.new(blog_params)
-  #   if params[:commit] == '確認'
-  #     render :preview
-  #   elsif params[:commit] == 'Comfirm'
-  #     @blog.save(blog_params)
-  #   else params[:commit] == 'Edit'
-  #     render :new
-  #   end
-  # end
-
-
   def create
     @categories = Category.all
     @blog = Blog.new(blog_params)
+    if params[:commit] == 'Edit' && blog_params[:image].present?
+      file = File.open(Rails.root.join("public" + blog_params[:image]))
+      @blog.image = file
+    end
+    if params[:commit] == 'Confirm' && blog_params.present?
+      file01 = File.open(Rails.root.join("public" + blog_params[:image]))
+      file02 = File.open(Rails.root.join("public" + blog_params[:creator_avatar]))
+      @blog.image = file01
+      @blog.creator_avatar = file02
+    end
+
     respond_to do |format|
       if params[:commit] == '確認'
         format.html { render :preview }
       elsif params[:commit] == 'Edit'
         format.html { render :new }
       elsif @blog.save
-        flash[:message] = 'Successfully created blog!'
+        flash[:message] = 'ブログを作成しました！'
         format.html { redirect_to blogs_path }
       else
-        flash[:alert] = 'Error creating new blog!'
+        flash[:alert] = '新しいブログの作成中にエラーが発生しました'
         format.html { render :new }
       end
     end
   end
 
+  def update
+    if @blog.update_attributes(blog_params)
+      flash[:notice] = "Successfully updated post!"
+      redirect_to blogs_path(@blog)
+    else
+      flash[:alert] = "Error updating post!"
+      render :edit
+    end
+  end
 
-  def show
-    @blog = Blog.find(params[:id])
+  def edit
   end
 
   private
@@ -75,6 +85,10 @@ class BlogsController < ApplicationController
 
   def find_blog
     @blog = Blog.find(params[:id])
+  end
+
+  def find_category_id
+    @categories = Category.all
   end
 
   def edit?

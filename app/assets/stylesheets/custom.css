@@ -69,3 +69,53 @@ label{
 select{
     height : 30px;
 }
+table{
+  border-style:solid;
+}
+td{
+  width: 150px;
+  margin-bottom: 10px;
+}
+th{
+  width: 150px;
+  text-align: center;
+}
+.kamanari{
+  margin-left: 85px;
+}
+.lable_02{
+  font-size: 25px;
+  border-style: double;
+  width: 20%;
+  margin-left: 90px;
+  margin-top: 10px;
+}
+input {
+  height: auto !important;
+  display: inline;
+}
+.form-control:not([size]):not([multiple]) {
+    height: calc(2.25rem + 2px);
+    width: 100%;
+}
+.form_index{
+  display:inline-flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 85px;
+}
+.td_index{
+  margin-left: 50px;
+}
+.new-blog{
+  border: 2px solid #cc0000;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  width: 10%;
+  font-size: 20px;
+  margin-left: 85px;
+  margin-bottom: 10px;
+}

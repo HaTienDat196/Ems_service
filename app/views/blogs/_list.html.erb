@@ -1,0 +1,58 @@
+<div id="filterrific_results">
+
+  <div class="kamanari">
+    <%= paginate @blog,theme: 'twitter-bootstrap-3' %>
+  </div>
+
+  <div class="example">
+    <div class="container">
+        <div class="row">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th><%= filterrific_sorting_link(@filterrific, :Created_at) %></th>
+                      <th><%= filterrific_sorting_link(@filterrific, :Title) %></th>
+                      <th><%= filterrific_sorting_link(@filterrific, :Category) %></th>
+                      <th><%= filterrific_sorting_link(@filterrific, :suggestive) %></th>
+                      <th><%= filterrific_sorting_link(@filterrific, :Creator) %></th>
+                      <th><%= filterrific_sorting_link(@filterrific, :image) %></th>
+                      <th><%= filterrific_sorting_link(@filterrific, :View_model) %></th>
+                      <th><%= filterrific_sorting_link(@filterrific, :Time_public) %></th>
+                      <th><%= filterrific_sorting_link(@filterrific, :manipulation) %></th>
+                    </tr>
+                </thead>
+                <% @blog.each do |blog| -%>
+                  <tbody>
+                    <tr>
+                      <td><%= blog.created_at %></td>
+                      <td><%= blog.title %></td>
+                      <td><%= blog.category.category_name %></td>
+                      <td><%= blog.suggestive ? "Yes" : "No" %></td>
+                      <td><%= blog.creator_name %></td>
+                      <td><%= image_tag blog.image.medium.url %></td>
+                      <td>
+                        <%= blog.view_model ? "Public" : "Private" %>
+                        <button type="button" value="">Change Model</button>
+                      </td>
+                      <td>
+                        <%= blog.public_time %>
+                        <% if blog.view_model == true %>
+                          <button type="button" value="">Change Time</button>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= link_to "Edit Bblog", edit_blog_path(blog)   %>
+                      </td>
+                    </tr>
+                  </tbody>
+                <% end -%>
+            </table>
+        </div>
+    </div>
+  </div>
+
+  <div class="kamanari">
+    <%= paginate @blog,theme: 'twitter-bootstrap-3' %>
+  </div>
+
+</div>

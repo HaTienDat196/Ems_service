@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   get 'blogs/index'
   get 'blogs/new'
   get 'blogs/show'
-  post 'blogs/show', to: 'blogs#show'
-  post 'blogs/edit', to: 'blogs#edit'
+  post 'blogs/change', to: 'blogs#change'
   root to: 'blogs#index'
   resources :blogs
 end

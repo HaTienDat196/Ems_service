@@ -1,18 +1,39 @@
-<h1>ブログブログ</h1>
-<%= render "blogs/header" %>
-  <% @blog.each do |blog| -%>
-    <table>
-      <tbody>
-        <tr>
-          <td><%= blog.created_at %></td>
-          <td><%= blog.title %></td>
-          <td><%= blog.category.category_name %></td>
-          <td><%= blog.suggestive %></td>
-          <td><%= blog.creator_name %></td>
-          <td><%= blog.image %></td>
-          <td><%= blog.view_model %></td>
-          <td><%= blog.public_time %></td>
-        </tr>
-      </tbody>
-    </table>
-  <% end -%>
+
+<%= form_for_filterrific @filterrific do |f|%>
+  <div class="form_index">
+    <div>
+      Title
+      <%= f.text_field(:search_query, class: 'form-control') %>
+    </div>
+
+    <div class="td_index">
+      Category
+      <%= f.select(:with_category_name,@filterrific.select_options[:with_category_name],{ include_blank: '- All Category -' },{class: "form-control"}) %>
+    </div>
+
+    <div class="td_index">
+      View Model
+      <%= f.select :with_view_model, [['Publics', false], ['Private', true]], {}, {class: "form-control"}%>
+    </div>
+
+    <div class="td_index">
+      Suggestive
+      <%= f.select :with_suggestive, [['Yes', false], ['No', true]], {}, {class: "form-control"} %>
+    </div>
+
+    <div class="td_index">
+      Sorted by
+      <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by], {}, {class: "form-control"})%>
+    </div>
+    <%= render_filterrific_spinner %>
+  </div>
+<% end %>
+
+<div class="new-blog">
+  <%= link_to "ブログブログ", blogs_new_path %>
+</div>
+
+<%= render(
+  partial: 'blogs/list',
+  locals: { blog: @blog }
+) %>

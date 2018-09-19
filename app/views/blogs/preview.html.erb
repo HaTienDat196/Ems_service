@@ -25,26 +25,31 @@
     <%= f.hidden_field :content %>
     Content: <%= @blog.content %>
   </div>
+
   <div class="field">
     <%= f.hidden_field :image %>
-    BLog_image: <%= @blog.image %>
+    BLog_image:<%= @blog.image%>
   </div>
+
   <div>
     <div class="form-group">
       <%= f.hidden_field :creator_name %>
       Creator_name: <%= @blog.creator_name %>
     </div>
+
     <div class="form-group">
       <%= f.hidden_field :creator_postion %>
       Creator_postion: <%= @blog.creator_postion %>
     </div>
+
     <div class="form-group">
       <%= f.hidden_field :creator_old %>
       Creator_old<%= @blog.creator_old %>
     </div>
+
     <div class="field">
       <%= f.hidden_field :creator_avatar %>
-      Creator_avatar: <%= @blog.creator_avatar %>
+      Creator_avatar:<%= @blog.creator_avatar%>
     </div>
   </div>
   <div>

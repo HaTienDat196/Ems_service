@@ -22,6 +22,12 @@ gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+gem 'kaminari'
+gem 'ransack'
+gem 'bootstrap-kaminari-views'
+gem 'bootstrap', '~> 4.1.3'
+gem 'filterrific'
+gem 'bootstrap_form'
 
 
 group :development, :test do

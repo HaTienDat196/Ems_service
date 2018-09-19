@@ -13,4 +13,4 @@ function previewFile(id) {
   } else {
     preview.src = "";
   }
-}
+} 
