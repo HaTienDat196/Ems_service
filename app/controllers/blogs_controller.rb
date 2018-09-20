@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
 
-  before_action :find_blog,:find_category_id, only: [:edit, :update, :show, :delete]
+  before_action :find_blog,:find_category_id, only: [:edit, :update, :show, :delete, :updatebolean]
 
   def index
     @filterrific = initialize_filterrific(
@@ -62,16 +62,36 @@ class BlogsController < ApplicationController
 
   def update
     if @blog.update_attributes(blog_params)
-      flash[:notice] = "Successfully updated post!"
+      flash[:notice] = "Successfully updated blog!"
       redirect_to blogs_path(@blog)
     else
-      flash[:alert] = "Error updating post!"
+      flash[:alert] = "Error update!"
       render :edit
     end
   end
 
   def edit
   end
+
+  def private_case
+      @blog = Blog.find(params[:id])
+      @blog.update(view_model: true)
+      redirect_to blogs_path
+  end
+
+  def public_case
+      @blog = Blog.find(params[:id])
+      @blog.update(view_model: false)
+      redirect_to blogs_path
+  end
+
+  def change_publictime
+    @blog = Blog.find(params[:id])
+    if @blog.public_time.present? == true
+     @blog.public_time = @blog.update(public_params)
+    end
+  end
+
 
   private
 
@@ -81,6 +101,10 @@ class BlogsController < ApplicationController
                                 :creator_name, :creator_postion,
                                 :creator_old, :creator_avatar, :view_model,
                                 :suggestive, :category_id, :category_name)
+  end
+
+  def public_params
+    params.require(:blog).permit(:public_time)
   end
 
   def find_blog

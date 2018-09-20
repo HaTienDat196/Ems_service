@@ -28,6 +28,7 @@ gem 'bootstrap-kaminari-views'
 gem 'bootstrap', '~> 4.1.3'
 gem 'filterrific'
 gem 'bootstrap_form'
+gem 'rubocop'
 
 
 group :development, :test do

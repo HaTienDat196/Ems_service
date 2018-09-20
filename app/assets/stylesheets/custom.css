@@ -119,3 +119,30 @@ input {
   margin-left: 85px;
   margin-bottom: 10px;
 }
+
+.view-model{
+  border: 2px solid #1f00cc;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  width: 60%;
+  font-size: 10px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.Edit-Blog{
+  border: 2px solid #1f00cc;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  width: 60%;
+  font-size: 10px;
+  text-align: center;
+  margin-left: 15px;
+  margin-top: 15px;
+}

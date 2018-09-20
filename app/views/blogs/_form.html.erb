@@ -21,13 +21,13 @@
       <div class="text_1">
         <p>カテゴリを選択してください</p>
       </div>
-        <div class='input-group date' id='public_time'>
-          <%= f.label :public_time, '公開日時' %>
-          <%= f.text_field :public_time %>
-          <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-          </span>
-        </div>
+      <div class='input-group date' id='public_time'>
+        <%= f.label :public_time, '公開日時' %>
+        <%= f.text_field :public_time %>
+        <span class="input-group-addon" id='public_time' >
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
       <div class="text_1">
         <p>公開日時を設定してください</p>
       </div>
@@ -46,9 +46,9 @@
     </div>
     <div class="field">
       <%= f.label :image, '写真紹介' %><br>
-      <div class="preview_image">
-        <img id="img1" src="" height="130"  alt="Image preview">
-      </div>
+        <div class="preview_image">
+          <img id="img1" src="" height="130"  alt="Image preview">
+        </div>
       <div class="text_2">
         <p>容量は2M未満です.PNG、JPG、JPEGのみ</p>
       </div>

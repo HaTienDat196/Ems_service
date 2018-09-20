@@ -32,16 +32,31 @@
                       <td><%= image_tag blog.image.medium.url %></td>
                       <td>
                         <%= blog.view_model ? "Public" : "Private" %>
-                        <button type="button" value="">Change Model</button>
+                        <div class="view-model">
+                          <% if blog.view_model? %>
+                            <%= button_to "Private", public_case_blog_path(id: blog.id) %>
+                          <% else %>
+                            <%= button_to "Public", private_case_blog_path(id: blog.id) %>
+                          <% end %>
+                        </div>
                       </td>
                       <td>
                         <%= blog.public_time %>
                         <% if blog.view_model == true %>
-                          <button type="button" value="">Change Time</button>
+                          <div class='input-group date'>
+                            <%= form_for blog, url: change_publictime_blog_path(blog), method: :post do |f| %>
+                              <div class="changedatetime">
+                                  <%= f.text_field :public_time, class: 'changedatetime' %>
+                              </div>
+                              <%= f.submit "Change" %>
+                            <% end %>
+                          </div>
                         <% end %>
                       </td>
                       <td>
-                        <%= link_to "Edit Bblog", edit_blog_path(blog)   %>
+                        <div class="Edit-Blog">
+                          <%= link_to "Edit Bblog", edit_blog_path(blog)   %>
+                        </div>
                       </td>
                     </tr>
                   </tbody>
