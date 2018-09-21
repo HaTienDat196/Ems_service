@@ -35,8 +35,10 @@ class BlogsController < ApplicationController
     @categories = Category.all
     @blog = Blog.new(blog_params)
     if params[:commit] == 'Edit' && blog_params[:image].present?
-      file = File.open(Rails.root.join("public" + blog_params[:image]))
-      @blog.image = file
+      file01 = File.open(Rails.root.join("public" + blog_params[:image]))
+      file02 = File.open(Rails.root.join("public" + blog_params[:creator_avatar]))
+      @blog.image = file01
+      @blog.creator_avatar = file02
     end
     if params[:commit] == 'Confirm' && blog_params.present?
       file01 = File.open(Rails.root.join("public" + blog_params[:image]))

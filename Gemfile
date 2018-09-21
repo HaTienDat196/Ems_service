@@ -29,6 +29,7 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'filterrific'
 gem 'bootstrap_form'
 gem 'rubocop'
+gem 'devise'
 
 
 group :development, :test do

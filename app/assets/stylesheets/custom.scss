@@ -1,4 +1,3 @@
-
 .total_interface
 {
   margin-left: 70px;
@@ -27,7 +26,6 @@
   border: 1px solid #bbb;
   width: 60%;
   margin-bottom: 15px;
-  @include box_sizing;
   margin-bottom: 10px;
   }
 }
@@ -42,7 +40,6 @@
   border-style: double;
   margin-bottom: 10px;
 }
-.
 .text_02{
   height: 30px;
   width: 80px;
@@ -171,3 +168,75 @@ input {
   width: 100%;
   font-size: 22px;
 }
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+.menukhoiho-wrap{
+  background:url(http://3.bp.blogspot.com/-QYwt5XFZsRI/U5f1_havIWI/AAAAAAAAPzw/xjNpY5CkSVs/s1600/khoibg3.png)
+  repeat-x top;
+  height:56px;width:100%;}
+.menukhoiho{
+  font:normal 12px Arial;
+  line-height:normal;
+  width:985px;
+  text-transform:none;
+  color:#f1f1f1;
+  text-decoration:none;
+  margin:0 auto;
+  padding:0 auto}
+.menukhoiho ul{margin:0;padding:0}
+.menukhoiho li{list-style:none;
+  color:#b69786;
+  float:left;
+  display:inline;
+  position:relative;
+  margin:0;padding:0}
+.menukhoiho li a{background:url(http://4.bp.blogspot.com/-AdMbizvfBHM/U5gynClkq3I/AAAAAAAAP0A/pHRxAQ3h3dk/s1600/11-06-2014+5-40-34+CH.png) repeat-x top;display:block;text-decoration:none;font-weight:700;color:#ccc;text-shadow:1px 1px 2px #111;outline:none;margin:10px 4px 8px;padding:8px 16px;border:1px solid #111}
+.menukhoiho li a:hover{background:#333;-moz-box-shadow: inset 2px 2px 2px #151515;-webkit-box-shadow: inset 2px 2px 2px #151515;box-shadow: inset 2px 2px 2px #151515;}
+.menukhoiho li a:hover,.menukhoiho ul li a:hover{color:#eee}
+

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   mount Ckeditor::Engine => '/ckeditor'
   get 'blogs/index'
   get 'blogs/new'
