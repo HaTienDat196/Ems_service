@@ -1,14 +1,13 @@
 <div class="total_interface">
   <%= simple_form_for @blog do |f| %>
-    <%= render 'shared/error_messages' %>
     <%= hidden_field_tag :step, :edit %>
     <div class="text_0">
       <p>ブログ投稿を作成する</p>
     </div>
     <div>
-      <div class="title_group">
+      <div class="form-group">
           <%= f.label :title, 'タイトル'  %>
-          <%= f.text_field :title%>
+          <%= f.text_field :title, class: 'text_form' %>
       </div>
       <div class="text_1">
         <p>タイトルを入力してください</p>
@@ -18,42 +17,42 @@
         <%= f.label :category, 'カテゴリ' %>
         <%= f.select :category_id, @categories.collect {|p| [ p.category_name, p.id ] }%>
       </div>
-      <div class="text_1">
+      <div class="text_1  ">
         <p>カテゴリを選択してください</p>
       </div>
-      <div class='input-group date' id='public_time'>
-        <%= f.label :public_time, '公開日時' %>
-        <%= f.text_field :public_time %>
-        <span class="input-group-addon" id='public_time' >
-          <span class="glyphicon glyphicon-calendar"></span>
-        </span>
+      <div class="form-group">
+        <div class='input-group date' id='public_time'>
+          <%= f.label :public_time, '公開日時' %>
+          <%= f.text_field :public_time %>
+          <span class="input-group-addon" id='public_time'>
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
       </div>
+
       <div class="text_1">
         <p>公開日時を設定してください</p>
       </div>
       <div class="form-group">
-        <div>
           <%= f.label :view_model, '公開設定' %>
-          <%= f.check_box :view_model %>公開設定
+          <%= f.check_box :view_model %>公開設定 %>
       </div>
       <div class="form-group">
         <%= f.label :suggestive , '提案設定' %>
         <%= f.check_box :suggestive %>提案設定
       </div>
     </div>
-    <div class="form-group">
+    <div>
       <%= f.input :content, :as => :ckeditor, input_html: {:ckeditor => {:toolbar => 'FULL'}}, class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :image, '写真紹介' %><br>
-        <div class="preview_image">
-          <img id="img1" src="" height="130"  alt="Image preview">
-        </div>
       <div class="text_2">
         <p>容量は2M未満です.PNG、JPG、JPEGのみ</p>
       </div>
-      <div class="text_2">
-        <%= f.file_field :image, onchange: "previewFile('img1')" %>
+      <div class="img_form">
+        <%= f.file_field :image,  onchange: "readURL(this);" %>
+        <img class="img_prev" src="#" alt="your image" />
       </div>
       <div class="text_2">
         <p>デモイメージをインストールしてください</p>
@@ -85,17 +84,15 @@
       </div>
       <div class="field">
         <%= f.label :creator_avatar, '代表的な画像' %>
-        <div class="preview_image">
-          <img id="img2" src="" height="130" alt="Image preview">
-        </div>
-        <div class="text_2">
-          <%= f.file_field :creator_avatar, onchange: "previewFile('img2')" %>
+        <div class="img_form">
+          <%= f.file_field :creator_avatar,  onchange: "readURL(this);" %>
+          <img class="img_prev" src="#" alt="your image" />
         </div>
         <div class="text_2">
           <p>容量は2M未満です.PNG、JPG、JPEGのみ</p>
         </div>
-      </div>
-      <div class="form-group">
+      <div/>
+      <div class="submit_form">
         <%= f.submit "確認" %>
       </div>
     </div>

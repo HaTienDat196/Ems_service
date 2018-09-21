@@ -63,8 +63,7 @@ class BlogsController < ApplicationController
   def update
     if @blog.update_attributes(blog_params)
       flash[:notice] = "Successfully updated blog!"
-      redirect_to blogs_path(@blog)
-    else
+      redirect_to blogs_path
       flash[:alert] = "Error update!"
       render :edit
     end
@@ -90,6 +89,7 @@ class BlogsController < ApplicationController
     if @blog.public_time.present? == true
      @blog.public_time = @blog.update(public_params)
     end
+    redirect_to blogs_path
   end
 
 

@@ -1,59 +1,77 @@
-<%= simple_form_for @blog do |f|%>
-  <div>
-    <div class="form-group">
-      <%= f.hidden_field :title %>
-      Title: <%= @blog.title %>
-    </div>
-    <div class="form-group">
-      <%= f.hidden_field :category_id %>
-      Category_name: <%= @blog.category.category_name %>
-    </div>
-    <div class="form-group">
-      <%= f.hidden_field :public_time %>
-      Time_public: <%= @blog.public_time %>
-    </div>
-    <div class="form-group">
-      <%= f.hidden_field :view_model %>
-      Public view: <%= @blog.view_model %>
-    </div>
-    <div class="form-group">
-      <%= f.hidden_field :suggestive %>
-      Suggestive: <%= @blog.suggestive %>
+<div class="example">
+  <div class="container">
+      <div class="row">
+        <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>タイトル</th>
+            <th>カテゴリ</th>
+            <th>公開日時</th>
+            <th>公開設定</th>
+            <th>提案設定</th>
+            <th>コンテンツ</th>
+            <th>写真紹介</th>
+            <th>名前</th>
+            <th>職員</th>
+            <th>年齢</th>
+            <th>代表的な画像</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <%= simple_form_for @blog do |f|%>
+          <td>
+            <%= f.hidden_field :title %>
+            <%= @blog.title %>
+          </td>
+          <td>
+            <%= f.hidden_field :category_id %>
+            <%= @blog.category.category_name %>
+          </td>
+          <td>
+            <%= f.hidden_field :public_time %>
+            <%= @blog.public_time %>
+          </td>
+          <td>
+            <%= f.hidden_field :view_model %>
+            <%= @blog.view_model %>
+          </td>
+          <td>
+            <%= f.hidden_field :suggestive %>
+            <%= @blog.suggestive %>
+          </td>
+          <td>
+            <%= f.hidden_field :content %>
+            <%= @blog.content %>
+          </td>
+          <td>
+            <%= f.hidden_field :image %>
+            <%= @blog.image %>
+          </td>
+          <td>
+            <%= f.hidden_field :creator_name %>
+            <%= @blog.creator_name %>
+          </td>
+          <td>
+            <%= f.hidden_field :creator_postion %>
+            <%= @blog.creator_postion %>
+          </td>
+          <td>
+            <%= f.hidden_field :creator_old %>
+            <%= @blog.creator_old %>
+          </td>
+          <td>
+            <%= f.hidden_field :creator_avatar %>
+            <%= @blog.creator_avatar%>
+          </td>
+          <td>
+            <%= f.submit 'Edit', class: 'submit_priview' %>
+            <%= f.submit 'Confirm', class: 'submit_priview' %>
+          </td>>
+          <% end %>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  <div class="form-group">
-    <%= f.hidden_field :content %>
-    Content: <%= @blog.content %>
-  </div>
-
-  <div class="field">
-    <%= f.hidden_field :image %>
-    BLog_image:<%= @blog.image%>
-  </div>
-
-  <div>
-    <div class="form-group">
-      <%= f.hidden_field :creator_name %>
-      Creator_name: <%= @blog.creator_name %>
-    </div>
-
-    <div class="form-group">
-      <%= f.hidden_field :creator_postion %>
-      Creator_postion: <%= @blog.creator_postion %>
-    </div>
-
-    <div class="form-group">
-      <%= f.hidden_field :creator_old %>
-      Creator_old<%= @blog.creator_old %>
-    </div>
-
-    <div class="field">
-      <%= f.hidden_field :creator_avatar %>
-      Creator_avatar:<%= @blog.creator_avatar%>
-    </div>
-  </div>
-  <div>
-    <%= f.submit 'Confirm' %>
-    <%= f.submit 'Edit' %>
-  </div>
-<% end %>
+</div>

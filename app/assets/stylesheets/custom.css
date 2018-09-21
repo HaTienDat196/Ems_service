@@ -7,16 +7,20 @@
 .text_0{
   font-size: 35px;
   margin-bottom: 10px;
+  margin-left: 230px;
 }
 .text_1{
-  margin-left: 140px;
+  margin-left: 400px;
   color: red;
   margin-bottom: 10px;
 }
 .text_2{
-  margin-left: 90px;
+  margin-left: 100px;
   color: red;
   margin-bottom: 10px;
+}
+.field{
+  margin-left: 250px;
 }
 .form_group1{
   input{
@@ -27,6 +31,9 @@
   margin-bottom: 10px;
   }
 }
+.form-group{
+  margin-left: 250px;
+}
 .preview_image
 {
   margin-left: 70px;
@@ -35,6 +42,7 @@
   border-style: double;
   margin-bottom: 10px;
 }
+.
 .text_02{
   height: 30px;
   width: 80px;
@@ -66,8 +74,14 @@ label{
     margin-bottom: 5px;
     font-weight: bold;
 }
+.form-group-title{
+  margin-left: 250px;
+}
+.text_form{
+    width: 58%;
+  }
 select{
-    height : 30px;
+    height : 35px;
 }
 table{
   border-style:solid;
@@ -79,6 +93,9 @@ td{
 th{
   width: 150px;
   text-align: center;
+}
+.img_form{
+  margin-left: 95px;
 }
 .kamanari{
   margin-left: 85px;
@@ -145,4 +162,12 @@ input {
   text-align: center;
   margin-left: 15px;
   margin-top: 15px;
+}
+.submit_form{
+  width: 100%;
+  font-size: 22px;
+}
+.submit_priview{
+  width: 100%;
+  font-size: 22px;
 }
